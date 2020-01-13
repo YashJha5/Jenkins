@@ -22,7 +22,7 @@ node {
     }
     stage('Push image') {
 
-        docker.withRegistry('https://registry.hub.docker.com', 'login_access') {
+        docker.withRegistry('https://registry.hub.docker.com/jhayash55', 'login_access') {
            
 		docker.image('customImage')
           	def customImage = docker.build("project:${env.BUILD_ID}")
