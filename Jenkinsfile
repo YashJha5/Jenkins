@@ -20,5 +20,12 @@ node {
             sh 'echo "Testing Passed Now deploy"'
 	
     }
+    stage('Push image') {
 
+        docker.withRegistry('https://registry.hub.docker.com/', 'login_access') {
+            def customImage = docker.build("jhayash55/project2")
+            app.push("latest")
+        }
+
+    }	
 }
