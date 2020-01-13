@@ -17,10 +17,8 @@ node {
     stage('Test image') {
          /* For this example, we're using a Volkswagen-type approach ;-) */
 
-        app.inside {
             sh 'echo "Testing Passed Now deploy"'
-            sh 'docker run -it -p 5000:5000 project2:v1'
-	}
+	
     }
 
 
