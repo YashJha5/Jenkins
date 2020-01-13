@@ -23,8 +23,9 @@ node {
     stage('Push image') {
 
         docker.withRegistry('https://registry.hub.docker.com', 'login_access') {
-           docker.image('my-custom-image').inside {
-           sh 'make test'
+           
+		docker.image('my-custom-image').inside {
+           		sh 'make test'
            
         }
     }
