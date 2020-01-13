@@ -23,12 +23,9 @@ node {
     stage('Push image') {
 
         docker.withRegistry('https://registry.hub.docker.com/jhayash55', 'login_access') {
-           
-		docker.image('customImage')
-          	def customImage = docker.build("project:${env.BUILD_ID}")
-
-        /* Push the container to the custom Registry */
-        customImage.push() 
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+        }   
         }
     }
 
