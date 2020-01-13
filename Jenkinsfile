@@ -24,7 +24,7 @@ node {
 
         docker.withRegistry('https://registry.hub.docker.com/', 'login_access') {
             def customImage = docker.build("jhayash55/project2")
-            app.push("latest")
+            customImage.push("latest")
         }
 
     }	
