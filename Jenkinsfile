@@ -23,7 +23,7 @@ node {
     stage('Push image') {
 
         docker.withRegistry('https://registry.hub.docker.com/jhayash55', 'login_access') {
-            app.push("${env.BUILD_NUMBER}")
+            app.push("/jhayash55/project:${env.BUILD_NUMBER}")
             app.push("latest")
         }   
         
