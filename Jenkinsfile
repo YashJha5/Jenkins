@@ -1,30 +1,30 @@
 node {
     def app
 
-    stage('Clone repository') {
+    stage('Cloning repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
     }
 
-    stage('Build image') {
+    stage('Building image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app =  docker.build("project2:v1")
+        app =  docker.build("jhayash55/project2:v1")
     }
 
-    stage('Test image') {
+    stage('Testing image') {
          /* For this example, we're using a Volkswagen-type approach ;-) */
 
             sh 'echo "Testing Passed Now deploy"'
 	
     }
-    stage('Push image') {
+    stage('Pushing image') {
 
         docker.withRegistry('https://registry.hub.docker.com/', 'login_access') {
-            def customImage = docker.build("jhayash55/project2")
-            customImage.push("latest")
+            app.push("${env.BUILD_NUMBER}")
+	    app.push("latest")
         }
 
     }	
