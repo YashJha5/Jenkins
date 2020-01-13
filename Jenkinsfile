@@ -15,7 +15,7 @@ node {
     }
 
     stage('Test image') {
-         * For this example, we're using a Volkswagen-type approach ;-) */
+         /* For this example, we're using a Volkswagen-type approach ;-) */
 
         app.inside {
             sh 'echo "Testing Passed Now deploy"'
