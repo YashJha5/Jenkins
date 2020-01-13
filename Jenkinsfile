@@ -24,9 +24,11 @@ node {
 
         docker.withRegistry('https://registry.hub.docker.com', 'login_access') {
            
-		docker.image('my-custom-image')
-           		sh 'make test'
-           
+		docker.image('customImage')
+          	def customImage = docker.build("project:${env.BUILD_ID}")
+
+        /* Push the container to the custom Registry */
+        customImage.push() 
         }
     }
 
