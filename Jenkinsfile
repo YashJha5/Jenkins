@@ -24,7 +24,7 @@ node {
 
         docker.withRegistry('https://registry.hub.docker.com', 'login_access') {
            
-		docker.image('my-custom-image').inside {
+		docker.image('my-custom-image')
            		sh 'make test'
            
         }
