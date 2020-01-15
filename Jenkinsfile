@@ -31,9 +31,9 @@ node {
     stage("Deploying on dev-server") {
 	def DockerRun = 'docker run -it -p 5000:5000 jhayash55/project2'
 	sshagent(['dev-server']) {
-	    sh "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no  jarvis@jarvis.westindia.cloudapp.azure.com "
-	    sh "sudo -i "
-            sh "${DockerRun}"
+	    sh "ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no  jarvis@jarvis.westindia.cloudapp.azure.com ${DockerRun}"
+	    
+            
 	}	
     }   
 
