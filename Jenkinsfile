@@ -31,7 +31,8 @@ node {
     stage("Deploying on dev-server") {
 	def DockerRun = 'sudo docker run -it -p 5000:5000 jhayash55/project2'
 	sshagent(['dev-server']) {
-	    sh "ssh -o StrictHostKeyChecking=no  jarvis@jarvis.westindia.cloudapp.azure.com ${DockerRun}"
+	    sh "ssh -o StrictHostKeyChecking=no  jarvis@jarvis.westindia.cloudapp.azure.com ${sudo -i}"
+	    sh "${DockerRun}"
 	                
 	}	
     }   
