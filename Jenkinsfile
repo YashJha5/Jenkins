@@ -32,7 +32,7 @@ node {
 	    sh "sshpass -p "Eric@123Eric@123" ssh jarvis@jarvis.westindia.cloudapp.azure.com docker run -it -p 5000:5000 jhayash55/project2 "
 	    
 	                
-	}	
+		
     }   
 
 }
